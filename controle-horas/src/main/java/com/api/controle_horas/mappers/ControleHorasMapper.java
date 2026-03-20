@@ -1,6 +1,5 @@
 package com.api.controle_horas.mappers;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ public class ControleHorasMapper {
   
   public static ControleHoras toEntity(ControleHorasRequestDto requestDto){
     ControleHoras controleHoras = new ControleHoras();
-    controleHoras.setTarefa_id(requestDto.getTarefa_id());
+    controleHoras.setTarefaId(requestDto.getTarefa_id());
     controleHoras.setData_inicio(requestDto.getData_inicio());
     controleHoras.setData_fim(requestDto.getData_fim());
     return controleHoras;
@@ -22,12 +21,9 @@ public class ControleHorasMapper {
   public static ControleHorasDto toDto(ControleHoras controleHoras){
     ControleHorasDto controleHorasDto = new ControleHorasDto();
     controleHorasDto.setId(controleHoras.getId());
-    controleHorasDto.setTarefa_id(controleHoras.getTarefa_id());
+    controleHorasDto.setTarefa_id(controleHoras.getTarefaId());
     controleHorasDto.setData_inicio(controleHoras.getData_inicio());
     controleHorasDto.setData_fim(controleHoras.getData_fim());
-    controleHorasDto.setTempo(
-      Duration.between(controleHoras.getData_inicio(), controleHoras.getData_fim())
-    );
     return controleHorasDto;
   }
 

@@ -8,5 +8,5 @@ import com.api.controle_horas.modelos.entidades.ControleHoras;
 
 public interface ControleHorasRepositorio extends JpaRepository<ControleHoras, Long> {
 
-  List<ControleHoras> findByTarefaId(Long tarefaId);
+  List<ControleHoras> findByTarefaId(Long tarefa_id);
 }

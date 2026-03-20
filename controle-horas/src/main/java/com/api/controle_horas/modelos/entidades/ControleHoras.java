@@ -17,8 +17,8 @@ public class ControleHoras {
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private Long id;
 
-  @Column
-  private Long tarefa_id;
+  @Column(name = "tarefa_id")
+  private Long tarefaId;
 
   @Column
   private Instant data_inicio;
