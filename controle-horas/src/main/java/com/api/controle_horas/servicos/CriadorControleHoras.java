@@ -2,8 +2,8 @@ package com.api.controle_horas.servicos;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestTemplate;
 
 import com.api.controle_horas.mappers.ControleHorasMapper;
 import com.api.controle_horas.modelos.dto.ControleHorasRequestDto;
@@ -24,6 +24,10 @@ public class CriadorControleHoras {
         "http://localhost:8081/tarefas/" + requestDto.getTarefa_id(),
         String.class
       );
+
+      if (requestDto.getData_inicio().isAfter(requestDto.getData_fim())) {
+        throw new IllegalArgumentException("Data de início não pode ser posterior à data de fim");
+      }
 
       ControleHoras controleHoras = ControleHorasMapper.toEntity(requestDto);
       repositorio.save(controleHoras);
